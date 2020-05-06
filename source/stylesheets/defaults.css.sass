@@ -9,10 +9,12 @@ html, body
   height: 100%
 
 body
+  +flexbox
+  +flex-direction(column)
   background: #{"{{ theme.background_color }}"}
   color: #{"{{ theme.text_color }}"}
   font: normal 100%/1.5 #{"{{ theme.text_font | font_family }}"}
-  -webkit-font-smoothing: antialiased
+  min-height: 100vh
 
 hr
   background-color: 1px solid #{"{{ theme.border_color }}"}

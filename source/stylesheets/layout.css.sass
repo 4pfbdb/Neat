@@ -355,7 +355,7 @@ header
         -webkit-backface-visibility: hidden
 
 #home .content
-  padding: #{"{% if theme.welcome_header == blank and theme.welcome_subheader == blank and theme.image_sets.slideshow_images.size == 0 %} 144px{% else %} 64px{% endif %}"} 0 0 0
+  padding: 64px 0 0
 
   @media only screen and (max-width:$breakpoint-small)
     padding-top: $marginSize
@@ -364,6 +364,7 @@ header
     margin-bottom: #{"{% if theme.featured_subheader == blank %} 48px {% else %} 16px {% endif %}"}
 
 .content
+  +flex(1)
   display: block
   margin: 0 auto
   padding-top: 144px

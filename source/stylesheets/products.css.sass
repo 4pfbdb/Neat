@@ -27,144 +27,115 @@ section.content
         content: ''
         padding: 0
 
-  .products_list, .social
-    display: -webkit-flex
-    display: -ms-flexbox
-    display: flex
+.products_list
+  +flexbox
+  +flex-wrap(wrap)
+  position: relative
+  padding: 0
+  margin-top: 0
 
-    -webkit-flex-wrap: wrap
-    -ms-flex-wrap: wrap
-    flex-wrap: wrap
+  &.collections
+    margin-top: 32px
+
+  li
+    +flexbox
     position: relative
-    padding: 0
-    margin-top: 0
+    overflow: hidden
+    width: 33.333333%
+    padding-right: 3.23232323%
+    padding-left: 3.23232323%
+    margin-bottom: 64px
+    text-align: center
 
-    &.collections
-      margin-top: 32px
-
-    li
-      position: relative
-      display: -webkit-flex
-      display: -ms-flexbox
-      display: flex
-      overflow: hidden
-      width: 33.333333%
-      padding-right: 3.23232323%
-      padding-left: 3.23232323%
-      margin-bottom: 64px
-      text-align: center
-
-      &:last-child
-        margin-bottom: 32px
-
-        @media only screen and (max-width:990px)
-          margin-bottom: 0
-
+    &:last-child
+      margin-bottom: 32px
 
       @media only screen and (max-width:990px)
-        width: 50%
+        margin-bottom: 0
 
+    @media only screen and (max-width:990px)
+      width: 50%
 
-      @media only screen and (max-width:$breakpoint-xsmall)
-        max-width: 100%
-        margin-bottom: $marginSize/2
-        width: 100%
+    @media only screen and (max-width:$breakpoint-small)
+      margin-bottom: 45px
 
-    a
-      display: block
-      text-align: center
-      margin: 0 auto
-      min-height: 300px
-      color: #{"{{ theme.link_color }}"}
+    @media only screen and (max-width:$breakpoint-xsmall)
       max-width: 100%
+      margin-bottom: $marginSize/2
+      width: 100%
 
-      &:hover
-        color: #{"{{ theme.link_hover }}"}
-
-      img
-        margin: 0 auto 16px auto
-        display: block
-        width: 100%
-
-      b, i
-        font-weight: normal
-        font-style: normal
-        text-align: center
-        whitespace: nowrap
-
-      b
-        display: block
-
-      i, em
-        display: inline-block
-        font-style: normal
-        color: #{"{{ theme.text_color }}"}
-
-    h4
-      text-align: center
-
-  .products_list
-
-    li
-      @media only screen and (max-width:$breakpoint-small)
-        margin-bottom: 45px
-
-      em
-        font-style: italic
-        color: #{"{{ theme.link_color }}"}
-
-  .pagination
-    +font-size(14)
-    border-top: 1px solid #{"{{ theme.border_color }}"}
+  a
+    color: #{"{{ theme.link_color }}"}
     display: block
-    line-height: 44px
-    margin: 0 auto $marginSize auto
-    max-width: 640px
-    padding-top: $marginSize
+    font-weight: normal
+    margin: 0 auto
+    max-width: 100%
+    min-height: 300px
     text-align: center
     width: 100%
-    font-family: #{"{{ theme.header_font | font_family }}"}
-    text-transform: uppercase
 
-    span, a
-      padding: 16px
+    &:hover
+      color: #{"{{ theme.link_hover }}"}
 
-      &.current
-        border: 1px solid #{"{{ theme.link_color }}"}
+    img
+      display: block
+      margin: 0 auto 16px auto
+      width: 100%
 
-    .previous,
-    .next
-      svg
-        position: relative
-        top: -2px
+      &.lazy
+        filter: blur(5px)
 
-      path
-        fill: #{"{{ theme.link_color }}"}
-        +transition(all .25s ease-in-out)
+.product-list-product-details
+  margin-top: 8px
 
-      &:hover path
-        fill: #{"{{ theme.link_hover }}"}
+.product-list-product-status
+  font-style: italic
 
-      @media only screen and (max-width:$breakpoint-small)
-        display: none
+.pagination
+  +font-size(14)
+  border-top: 1px solid #{"{{ theme.border_color }}"}
+  display: block
+  line-height: 44px
+  margin: 0 auto $marginSize auto
+  max-width: 640px
+  padding-top: $marginSize
+  text-align: center
+  width: 100%
+  font-family: #{"{{ theme.header_font | font_family }}"}
+  text-transform: uppercase
 
-    .previous svg
-      left: -2px
-      rotate: 90deg
+  span, a
+    padding: 16px
 
-    .next svg
-      left: 1px
-      rotate: -90deg
+    &.current
+      border: 1px solid #{"{{ theme.link_color }}"}
 
-    .disabled
+  .previous,
+  .next
+    svg
+      position: relative
+      top: -2px
+
+    path
+      fill: #{"{{ theme.link_color }}"}
+      +transition(all .25s ease-in-out)
+
+    &:hover path
+      fill: #{"{{ theme.link_hover }}"}
+
+    @media only screen and (max-width:$breakpoint-small)
       display: none
 
-  .social
-    margin: 0 0 64px 0
-    padding: 0
+  .previous svg
+    left: -2px
+    rotate: 90deg
 
-    li
-      padding-bottom: 0
+  .next svg
+    left: 1px
+    rotate: -90deg
+
+  .disabled
+    display: none
 
 .no_results
   text-align: center

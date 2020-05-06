@@ -1,3 +1,6 @@
+{% assign product_image_constrain = 350 %}
+{% assign product_image_constrain_large = product_image_constrain | times: 2 %}
+
 <section class="content">
   <h1>
     {% if page.full_url contains "search=" %}
@@ -27,17 +30,19 @@
   			{% for product in products %}
   				<li class="{{ product.css_class }}">
   					<a href="{{ product.url }}">
-  						<img alt="Image of {{ product.name | escape }}" src="{{ product.image | product_image_url | constrain: '900' }}">
-  						<b>{{ product.name }}</b>
-  						<i>{{ product.default_price | money: theme.money_format }}</i>
-  						{% case product.status %}
-  							{% when 'active' %}
-  								{% if product.on_sale %}<em>On Sale</em>{% endif %}
-  							{% when 'sold-out' %}
-  								<em>Sold Out</em>
-  							{% when 'coming-soon' %}
-  								<em>Coming Soon</em>
-  						{% endcase %}
+  						<img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.image | product_image_url | constrain: 50 }}" data-src="{{ product.image | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.image | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.image | product_image_url | constrain: product_image_constrain }} 1x">
+  						<div class="product-list-product-name">{{ product.name }}</div>
+  						<div class="product-list-product-details">
+                <span class="product-list-product-price">{{ product.default_price | money: theme.money_format }}</span>
+    						{% case product.status %}
+    							{% when 'active' %}
+    								{% if product.on_sale %}<span class="product-list-product-status">On Sale</span>{% endif %}
+    							{% when 'sold-out' %}
+    								<span class="product-list-product-status">Sold Out</span>
+    							{% when 'coming-soon' %}
+    								<span class="product-list-product-status">Coming Soon</span>
+    						{% endcase %}
+              </div>
   					</a>
   				</li>
   			{% endfor %}
@@ -53,7 +58,7 @@
     {% endpaginate %}
 
   {% else %}
-  
+
     {% if categories.active != blank %}
       <ul class="products_list collections">
         {% for category in categories.active %}

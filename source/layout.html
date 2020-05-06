@@ -1,14 +1,20 @@
 <!DOCTYPE html>
   <head>
-    <title>{% if page.full_url contains "search=" %}Product Search{% elsif theme.collections and page.full_url contains '/products' %}Collections{% else %}{{ page.name }}{% endif %} | {{ store.name }}</title>
+    <title>
+      {% if page.full_url contains "search=" %}
+        Product Search
+      {% elsif theme.collections and page.full_url contains '/products' %}
+        Collections
+      {% else %}
+        {{ page.name }}
+      {% endif %} | {{ store.name }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }}">
-  <div class="wrap">
-	    <header {% if page.permalink =='home' %}class="home{% if theme.welcome_header == blank and theme.welcome_subheader == blank and theme.image_sets.slideshow_images.size == 0 %} overlay {% else %} has_featured{% endif %}"{% else %}class="page"{% endif %}>
+    <header {% if page.permalink =='home' %}class="home{% if theme.welcome_header == blank and theme.welcome_subheader == blank and theme.image_sets.slideshow_images.size == 0 %} overlay {% else %} has_featured{% endif %}"{% else %}class="page"{% endif %}>
       <div class="logo {% if theme.logo != blank %}image{% else %}text{% endif %}">
         <a href="/" title="{{ store.name | escape }}">
           {% if theme.logo != blank %}
@@ -62,15 +68,15 @@
   		  <li><a href="/contact">Contact</a></li>
   		</ul>
 	  </div>
-    {% if page.category == 'custom' %}
-      <section class="content">
-	      <h1>{{ page.name }}</h1>
-	      {{ page_content | paragraphs }}
-      </section>
-    {% else %}
-      {{ page_content }}
-    {% endif %}
 
+    <main class="content" id="main">
+      {% if page.category == 'custom' %}
+        <h1>{{ page.name }}</h1>
+        {{ page_content | paragraphs }}
+      {% else %}
+        {{ page_content }}
+      {% endif %}
+    </main>
     <footer>
       <nav class="footernav">
         <ul>
@@ -114,7 +120,6 @@
     		</a>
       </form>
     {% endif %}
-  </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="{{ 'api' | theme_js_url }}"></script>
   <script src="{{ theme | theme_js_url }}"></script>
