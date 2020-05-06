@@ -1,8 +1,9 @@
-@import 'compass'
 @import 'config'
-@import 'remfont'
 
 // Global
+
+*
+  box-sizing: border-box
 
 html, body
   height: 100%
@@ -26,17 +27,12 @@ hr
 // CSS3 Global Animation
 
 header:after
-  +transition-property(all)
-  +transition-duration(.5s)
-  +transition-timing-function(ease-in)
-
+  +transition(all .5s ease-in)
 a,
 header a:after,
 .slideshow div a,
 .button, submit, input[type='submit'], button, select, path, circle, .select
-  +transition-property(all)
-  +transition-duration(.25s)
-  +transition-timing-function(ease-in-out)
+  +transition(all .25s ease-in-out)
 
 // Links
 
@@ -51,11 +47,10 @@ a:hover
 // Buttons
 
 .button, submit, input[type='submit'], button
-  +border-radius(0)
+  border-radius: 0
   +font-size(14)
   background-color: #{"{{ theme.text_color }}"}
   border: none
-  box-sizing: border-box
   color: #{"{{ theme.background_color }}"}
   display: inline-block
   font-weight: 600
@@ -100,11 +95,10 @@ form, input, textarea, submit, input[type='submit'], input[type='text'], button,
   appearance:         none
 
 input[type='text'], input[type='textarea'], textarea
-  +border-radius(0)
+  border-radius: 0
   +font-size(16)
   background-color: rgba(white, 0)
   border: 1px solid #{"{{ theme.link_color }}"}
-  box-sizing: border-box
   color: #{"{{ theme.link_color }}"}
   margin: 0
   outline: 0
@@ -121,9 +115,7 @@ input[type='textarea'], textarea
   white-space: normal
 
 .select
-  +pie-clearfix
   border: 1px solid #{"{{ theme.link_color }}"}
-  box-sizing: border-box
   color: #{"{{ theme.link_color }}"}
   margin-bottom: 16px
   position: relative

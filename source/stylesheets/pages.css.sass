@@ -1,19 +1,14 @@
-@import 'compass'
 @import 'config'
-@import 'remfont'
-@import 'verticalalign'
 
 .custom
 
   section.content
-    +pie-clearfix
-    box-sizing: border-box
     margin: 0 auto
     max-width: 800px
     padding-left: $marginSize
     padding-right: $marginSize
     padding-bottom: 64px
-    
+
     @media only screen and (max-width:$breakpoint-small)
       padding-left: $marginSize/2
       padding-right: $marginSize/2

@@ -1,14 +1,10 @@
-@import 'compass'
 @import 'config'
-@import 'remfont'
-@import 'verticalalign'
 
 div.wrap
   height: 100%
   width: 100%
 
 header
-  +pie-clearfix
   font-family: #{"{{ theme.text_font | font_family }}"}
   font-weight: 600
   height: 88px
@@ -23,7 +19,7 @@ header
       position: #{"{% if theme.welcome_header == blank and theme.welcome_subheader == blank and theme.image_sets.slideshow_images.size == 0 %} relative {% else %} absolute {% endif %}"}
 
     &:after
-      +opacity(0)
+      opacity: 0
       background-color: #{"{{ theme.header_color }}"}
       border-bottom: 1px solid #{"{{ theme.border_color }}"}
       content: " "
@@ -37,7 +33,7 @@ header
     position: fixed
 
     &:after
-      +opacity(1)
+      opacity: 1
       background-color: #{"{{ theme.header_color }}"}
       border-bottom: 1px solid #{"{{ theme.border_color }}"}
       content: " "
@@ -96,7 +92,7 @@ header
 
 
     &:after
-      +opacity(0)
+      opacity: 0
       background-color: #{"{{ theme.background_color }}"}
       content: " "
       display: block
@@ -114,14 +110,13 @@ header
       opacity: .9
 
       &:after
-        +opacity(1)
+        opacity: 1
 
       path,
       circle
         fill: #{"{{ theme.welcome_text_color }}"}
 
   .logo
-    +box-sizing(border-box)
     +font-size(24)
     float: left
     font-family: #{"{{ theme.header_font | font_family }}"}
@@ -217,7 +212,6 @@ header
       display: none
 
 .mobile_nav
-  +box-sizing(border-box)
   +transition(all .2s ease-in-out)
   background-color: rgba(black, .95)
   line-height: 88px
@@ -286,7 +280,7 @@ header
 
   div.featured_holder
     background-color: rgba(black, .3)
-    +background(url('#{"{{ 'overlay_pattern.png' | theme_image_url }}"}'))
+    background: url('#{"{{ 'overlay_pattern.png' | theme_image_url }}"}')
     background-repeat: repeat
     background-size: 4px
     height: 100%
@@ -370,7 +364,6 @@ header
     margin-bottom: #{"{% if theme.featured_subheader == blank %} 48px {% else %} 16px {% endif %}"}
 
 .content
-  +pie-clearfix
   display: block
   margin: 0 auto
   padding-top: 144px
@@ -399,7 +392,6 @@ header
       margin: 0 auto
 
   .social_links
-    +box-sizing(border-box)
     +font-size(16)
     line-height: normal
     list-style: none
@@ -410,7 +402,6 @@ header
     width: 100%
 
     li
-      +box-sizing(border-box)
       border: 1px solid #{"{{ theme.border_color }}"}
       border-width: 1px 0 1px 1px
       display: inline-block
@@ -450,9 +441,7 @@ header
           fill: #{"{{ theme.background_color }}"}
 
 footer
-  +box-sizing(border-box)
   +font-size(14)
-  +pie-clearfix
   border-top: 1px solid #{"{{ theme.border_color }}"}
   display: block
   margin: 0 auto
@@ -578,7 +567,9 @@ footer
       width: 100%
 
       a
-        +hide-text
+        text-indent: 110%
+        white-space: nowrap
+        overflow: hidden
         background: url(#{'{{ "bc_badge.svg" | theme_image_url }}'}) no-repeat
         border: none
         display: block
