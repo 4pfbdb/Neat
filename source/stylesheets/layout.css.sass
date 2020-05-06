@@ -354,25 +354,13 @@ header
       img
         -webkit-backface-visibility: hidden
 
-#home .content
-  padding: 64px 0 0
-
-  @media only screen and (max-width:$breakpoint-small)
-    padding-top: $marginSize
-
-  h1
-    margin-bottom: #{"{% if theme.featured_subheader == blank %} 48px {% else %} 16px {% endif %}"}
-
 .content
   +flex(1)
   display: block
-  margin: 0 auto
-  padding-top: 144px
+  margin: 88px auto 0
+  padding-top: 32px
   position: relative
   width: 100%
-
-  @media only screen and (max-width:$breakpoint-small)
-    padding-top: $marginSize
 
   h1
     color: #{"{{ theme.text_color }}"}
@@ -577,12 +565,3 @@ footer
         height: 24px
         width: 80px
         margin: 0 auto
-
-#success .content
-  margin: 0 auto 64px auto
-  max-width: 800px
-  text-align: center
-  width: 100%
-
-  p
-    padding: 0 $marginSize

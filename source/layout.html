@@ -71,8 +71,12 @@
 
     <main class="content" id="main">
       {% if page.category == 'custom' %}
-        <h1>{{ page.name }}</h1>
-        {{ page_content | paragraphs }}
+        <div class="custom-page">
+          <h1 class="page-title custom-page-title">{{ page.name }}</h1>
+          <div class="custom-page-content">
+            {{ page_content | paragraphs }}
+          </div>
+        </div>
       {% else %}
         {{ page_content }}
       {% endif %}
